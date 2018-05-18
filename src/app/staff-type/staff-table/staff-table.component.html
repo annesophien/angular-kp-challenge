@@ -10,7 +10,9 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr *ngFor="let s of this.staffService.staff">
+		<!-- <tr class="clickable-row" data-href="#" *ngFor="let s of this.staffService.staff"> -->
+		<!-- https://ciphertrick.com/2016/10/26/highlight-selected-row-in-ngfor-angular-2/ -->
+		<tr *ngFor="let s of this.staffService.staff; let i = index" [id]="i" (click)="setClickedRow(i)" [class.active]="i == selectedRow">
 			<td>{{ s.description }}</td>
 			<td>{{ s.code }}</td>
 			<td>{{ s.role }}</td>

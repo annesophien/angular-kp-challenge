@@ -10,13 +10,13 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr>
-			<td>test</td>
-			<td>test</td>
-			<td>test</td>
-			<td>test</td>
-			<td>test</td>
-			<td>test</td>
+		<tr *ngFor="let s of this.staffService.staff">
+			<td>{{ s.description }}</td>
+			<td>{{ s.code }}</td>
+			<td>{{ s.role }}</td>
+			<td>{{ s.active }}</td>
+			<td>{{ s.modifiedBy }}</td>
+			<td>{{ s.modifiedDate }}</td>
 		</tr>
 	</tbody>
 </table>

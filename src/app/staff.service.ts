@@ -5,9 +5,9 @@ export class StaffService {
 			description: 'Test 1',
 			code: 10001,
 			role: 'AGENT',
-			active: 'N',
-			modifiedBy: 'SU',
-			modifiedDate: new Date() //'May 17, 2018 3:00:00 PM PDT'
+			active: 'Y',
+			modifiedBy: 'A497',
+			modifiedDate: 'May 17, 2018 3:00:00 PM PDT'
 		},
 		{
 			description: 'Test 2',
@@ -21,8 +21,8 @@ export class StaffService {
 			description: 'Tester',
 			code: 10003,
 			role: 'RN',
-			active: 'Y',
-			modifiedBy: 'R363',
+			active: 'N',
+			modifiedBy: 'R361',
 			modifiedDate: 'May 11, 2018 7:00:00 PM PDT'
 		},
 		{
@@ -38,19 +38,19 @@ export class StaffService {
 	addStaff(description: string, code: number, role: string, active: string,
 		modifiedBy: string) {
 			this.staff.push({description: description, code: code, role: role, 
-				active: active, modifiedBy: modifiedBy, modifiedDate: new Date()});
+				active: active, modifiedBy: modifiedBy, modifiedDate: new Date().toDateString()});
 	}
 
 	updateStaff(id: number, description: string, role: string, modifiedBy: string) {
 			this.staff[id].description = description;
 			this.staff[id].role = role;
 			this.staff[id].modifiedBy = modifiedBy;
-			this.staff[id].modifiedDate = new Date();
+			this.staff[id].modifiedDate = new Date().toDateString();
 	}
 
 	activateStaff(id: number, active, modifiedBy) {
 		this.staff[id].active = active === 'Y' ? 'N' : 'Y';
 		this.staff[id].modifiedBy = modifiedBy;
-		this.staff[id].modifiedDate = new Date();
+		this.staff[id].modifiedDate = new Date().toDateString();
 	}
 }

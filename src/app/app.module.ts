@@ -9,7 +9,7 @@ import { ContactCenterComponent } from './contact-center/contact-center.componen
 import { HeaderComponent } from './header/header.component';
 import { StaffTableComponent } from './staff-type/staff-table/staff-table.component';
 import { StaffRowComponent } from './staff-type/staff-table/staff-row/staff-row.component';
-
+import { StaffService } from './staff.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,7 @@ import { StaffRowComponent } from './staff-type/staff-table/staff-row/staff-row.
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [StaffService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

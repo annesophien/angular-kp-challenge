@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StaffService } from '../../staff.service';
 
 @Component({
   selector: 'app-staff-table',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StaffTableComponent implements OnInit {
 
-  constructor() { }
+  constructor(private staffService: StaffService) { }
 
   ngOnInit() {
   }

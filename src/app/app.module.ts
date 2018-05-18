@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-
 import { AppComponent } from './app.component';
 import { StaffTypeComponent } from './staff-type/staff-type.component';
 import { ComputerPhoneComponent } from './computer-phone/computer-phone.component';
@@ -22,7 +21,7 @@ import { StaffService } from './staff.service';
     StaffRowComponent
   ],
   imports: [
-    BrowserModule
+		BrowserModule
   ],
   providers: [StaffService],
   bootstrap: [AppComponent]

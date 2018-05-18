@@ -10,6 +10,9 @@ export class StaffTypeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  }
-
+	}
+	
+	onAdd() {
+		// pop up html page to add new row
+	}
 }

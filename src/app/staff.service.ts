@@ -12,6 +12,15 @@ export class StaffService {
 		return this.staff.slice();
 	}
 
+	getColumns() {
+		return [{"description": "description", "title": "Description"},
+			{"description": "code", "title": "Code"},
+			{"description": "role", "title": "Role"},
+			{"description": "active", "title": "Active?"},
+			{"description": "modifiedBy", "title": "Modified By"},
+			{"description": "modifiedDate", "title": "Modified Date"}];
+	}
+
 	getStaff(index: number) {
 		return this.staff[index];
 	}

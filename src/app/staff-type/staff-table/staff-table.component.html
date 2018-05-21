@@ -1,29 +1,30 @@
 <table class="table table-striped">
 	<thead>
 		<tr>
-			<th width="26%" sortable-column="description">Description</th>
+			<th *ngFor="let col of columns">{{ col.title }}</th>
+			<!-- <th width="26%" sortable-column="description">Description</th>
 			<th width="10%" sortable-column="code">Code</th>
 			<th width="10%" sortable-column="role">Role</th>
 			<th width="10%" sortable-column="active">Active?</th>
 			<th width="22%" sortable-column="modified-by">Last Modified By</th>
-			<th width="22%" sortable-column="modified-date">Last Modified Date</th>
+			<th width="22%" sortable-column="modified-date">Last Modified Date</th> -->
 		</tr>
 	</thead>
 	<tbody>
-		<!-- <tr class="clickable-row" data-href="#" *ngFor="let s of this.staffService.staff"> -->
 		<!-- https://ciphertrick.com/2016/10/26/highlight-selected-row-in-ngfor-angular-2/ -->
 		<tr 
-			*ngFor="let s of this.staffService.staff; let i = index" 
+			*ngFor="let staff of this.staffService.getStaffs(); let i = index" 
 			[id]="i" 
 			(click)="setClickedRow(i)" 
-			[class.active]="i == selectedRow"
-		>
-			<td>{{ s.description }}</td>
-			<td>{{ s.code }}</td>
-			<td>{{ s.role }}</td>
-			<td>{{ s.active }}</td>
-			<td>{{ s.modifiedBy }}</td>
-			<td>{{ s.modifiedDate }}</td>
+			[class.active]="i == selectedRow">
+			<!-- <app-staff-row [staff]="staff"></app-staff-row> -->
+			<!-- <app-staff-row [staff]="staff" [columns]="columns"></app-staff-row> -->
+			<td>{{ staff.description }}</td>
+			<td>{{ staff.code }}</td>
+			<td>{{ staff.role }}</td>
+			<td>{{ staff.active }}</td>
+			<td>{{ staff.modifiedBy }}</td>
+			<td>{{ staff.modifiedDate }}</td>
 		</tr>
 	</tbody>
 </table>

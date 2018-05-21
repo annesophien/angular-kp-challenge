@@ -10,12 +10,14 @@ import { StaffType } from '../staff-type.model';
 export class StaffTableComponent implements OnInit {
 	selectedRow: Number;
 	display = 'none';
-	staff: StaffType[];
+	staffs: StaffType[];
+	columns: {description: string, title: string}[];
 
   constructor(private staffService: StaffService) { }
 
   ngOnInit() {
-		this.staff = this.staffService.getStaffs();
+		this.staffs = this.staffService.getStaffs();
+		this.columns = this.staffService.getColumns();
 	}
 	
 	setClickedRow(index) {

@@ -2,3 +2,8 @@
   background-color:#378ffb;
 	color: #ffffff;
 }
+
+.input label, .input input {
+	display: inline-block;
+	width: 40%;
+}

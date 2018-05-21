@@ -34,7 +34,39 @@
 					<h4 class="modal-title">Update Staff Type</h4>
 				</div>
 				<div class="modal-body">
-					<p>Model body text</p>
+					<!-- <p>Model body text</p> -->
+					<form>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="input">
+									<label for="code">Staff Type Code</label>
+									<input type="number" id="code" class="form-control" disabled #amountInput>
+								</div>
+								<div class="input">
+									<label for="description">Staff Type Description</label>
+									<input type="text" id="description" class="form-control" #measurementInput>
+								</div>
+								<div class="input">
+									<label for="role">Staff Role</label>
+									<input type="text" id="role" class="form-control" #nameInput>
+								</div>
+								<div class="input">
+									<label for="enable-call">Enable After Call Work</label>
+									<select id="enable-call" disabled>
+										<option value="y">Yes</option>
+										<option value="n">No</option>
+									</select>
+								</div>
+								<div class="input">
+									<label for="restrict-call-history">Restrict Call History</label>
+									<select id="enable-call" disabled>
+										<option value="y">Yes</option>
+										<option value="n">No</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</form>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" (click)="deactivateStaff()">Deactivate</button>

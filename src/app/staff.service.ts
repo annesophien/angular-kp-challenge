@@ -25,22 +25,18 @@ export class StaffService {
 		return this.staff[index];
 	}
 
-	addStaff(description: string, code: number, role: string, active: string,
-		modifiedBy: string) {
-			this.staff.push({description: description, code: code, role: role, 
-				active: active, modifiedBy: modifiedBy, modifiedDate: new Date().toDateString()});
+	addStaff(staff: StaffType) {
+		staff.modifiedDate = new Date().toDateString();
+		this.staff.push(staff);
 	}
 
-	updateStaff(id: number, description: string, role: string, modifiedBy: string) {
-			this.staff[id].description = description;
-			this.staff[id].role = role;
-			this.staff[id].modifiedBy = modifiedBy;
-			this.staff[id].modifiedDate = new Date().toDateString();
+	updateStaff(id: number, staff: StaffType) {
+		staff.modifiedDate = new Date().toDateString();
+		this.staff[id] = staff;
 	}
 
-	activateStaff(id: number, active, modifiedBy) {
-		this.staff[id].active = active === 'Y' ? 'N' : 'Y';
-		this.staff[id].modifiedBy = modifiedBy;
+	activateStaff(id: number) {
+		this.staff[id].active === 'Y' ? 'N' : 'Y';
 		this.staff[id].modifiedDate = new Date().toDateString();
 	}
 }

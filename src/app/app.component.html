@@ -1,10 +1,11 @@
-<app-header (featureSelected)="onNavigate($event)"></app-header>
+<app-header></app-header>
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
-			<div *ngIf="selectedFeature === 'staff'"><app-staff-type></app-staff-type></div>
-			<div *ngIf="selectedFeature === 'contact'"><app-contact-center></app-contact-center></div>
-			<div *ngIf="selectedFeature === 'asset'"><app-computer-phone></app-computer-phone></div>
+			<router-outlet></router-outlet>
+			<!-- <div *ngIf="selectedFeature === 'staff'"><app-staff-type></app-staff-type></div> -->
+			<!-- <div *ngIf="selectedFeature === 'contact'"><app-contact-center></app-contact-center></div> -->
+			<!-- <div *ngIf="selectedFeature === 'asset'"><app-computer-phone></app-computer-phone></div> -->
 		</div>
 	</div>
 </div>

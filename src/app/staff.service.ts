@@ -1,39 +1,20 @@
+import  { StaffType } from './staff-type/staff-type.model';
 
 export class StaffService {
-	staff = [
-		{
-			description: 'Test 1',
-			code: 10001,
-			role: 'AGENT',
-			active: 'Y',
-			modifiedBy: 'A497',
-			modifiedDate: 'May 17, 2018 3:00:00 PM PDT'
-		},
-		{
-			description: 'Test 2',
-			code: 10002,
-			role: 'MD',
-			active: 'Y',
-			modifiedBy: 'S603',
-			modifiedDate: 'May 1, 2018 01:00:00 AM PDT'
-		},
-		{
-			description: 'Tester',
-			code: 10003,
-			role: 'RN',
-			active: 'N',
-			modifiedBy: 'R361',
-			modifiedDate: 'May 11, 2018 7:00:00 PM PDT'
-		},
-		{
-			description: 'Testee',
-			code: 10004,
-			role: 'AGENT',
-			active: 'Y',
-			modifiedBy: 'L003',
-			modifiedDate: 'May 41, 2018 9:00:00 AM PDT'
-		},
+	staff: StaffType[] = [
+		new StaffType('Test 1', 10001, 'AGENT', 'Y', 'A497', 'May 17, 2018 3:00:00 PM PDT'),
+		new StaffType('Test 2', 10002, 'MD', 'Y', 'S603', 'May 1, 2018 01:00:00 AM PDT'),
+		new StaffType('Tester', 10003, 'RN', 'N', 'R361', 'May 11, 2018 7:00:00 PM PDT'),
+		new StaffType('Testee', 10004, 'AGENT', 'Y', 'L003', 'May 41, 2018 9:00:00 AM PDT'),
 	];
+
+	getStaffs() {
+		return this.staff.slice();
+	}
+
+	getStaff(index: number) {
+		return this.staff[index];
+	}
 
 	addStaff(description: string, code: number, role: string, active: string,
 		modifiedBy: string) {

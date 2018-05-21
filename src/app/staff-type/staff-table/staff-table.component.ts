@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StaffService } from '../../staff.service';
+import { StaffType } from '../staff-type.model';
 
 @Component({
   selector: 'app-staff-table',
@@ -9,10 +10,12 @@ import { StaffService } from '../../staff.service';
 export class StaffTableComponent implements OnInit {
 	selectedRow: Number;
 	display = 'none';
+	staff: StaffType[];
 
   constructor(private staffService: StaffService) { }
 
   ngOnInit() {
+		this.staff = this.staffService.getStaffs();
 	}
 	
 	setClickedRow(index) {
@@ -32,6 +35,6 @@ export class StaffTableComponent implements OnInit {
 	}
 
 	updateStaff() {
-		
+
 	}
 }

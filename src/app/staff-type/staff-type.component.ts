@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Router, ActivatedRoute } from '@angular/router';
+
+import { StaffType } from './staff-type.model';
+import { StaffService } from '../staff.service';
 
 @Component({
   selector: 'app-staff-type',
@@ -7,12 +12,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StaffTypeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private staffService: StaffService,
+		private store: Store<{staff: {staffs: StaffType[]}}>, 
+		private router: Router, 
+		private route: ActivatedRoute) { }
 
   ngOnInit() {
 	}
 	
-	onAdd() {
-		// pop up html page to add new row
+	onNewStaff() {
+		// this.router.navigate(['new'], {relativeTo: this.route});
 	}
 }

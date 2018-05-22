@@ -12,6 +12,7 @@ import { StaffRowComponent } from './staff-type/staff-table/staff-row/staff-row.
 import { StaffService } from './staff.service';
 import { staffTypeReducer } from './staff-type/store/staff-type.reducers';
 import { AppRoutingModule } from './app-routing.module';
+import { StaffTypeEditComponent } from './staff-type/staff-type-edit/staff-type-edit.component';
 
 @NgModule({
   declarations: [
@@ -22,11 +23,12 @@ import { AppRoutingModule } from './app-routing.module';
     HeaderComponent,
     StaffTableComponent,
 		StaffRowComponent,
-		// StoreModule.forRoot({staff: StaffTypeReducer})
+		StaffTypeEditComponent,
   ],
   imports: [
 		BrowserModule,
-		AppRoutingModule
+		AppRoutingModule,
+		StoreModule.forRoot({staff: staffTypeReducer})
   ],
   providers: [StaffService],
   bootstrap: [AppComponent]

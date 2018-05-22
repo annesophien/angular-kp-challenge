@@ -7,7 +7,7 @@
 	<tbody>
 		<!-- https://ciphertrick.com/2016/10/26/highlight-selected-row-in-ngfor-angular-2/ -->
 		<tr 
-			*ngFor="let staff of this.staffService.getStaffs(); let i = index" 
+			*ngFor="let staff of (staffState | async).staffs; let i = index" 
 			[id]="i" 
 			(click)="setClickedRow(i)" 
 			(click)="openModal()"

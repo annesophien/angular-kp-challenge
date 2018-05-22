@@ -4,6 +4,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { StaffType } from './staff-type.model';
 import { StaffService } from '../staff.service';
+import { Observable } from 'rxjs/Observable';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-staff-type',
@@ -11,6 +13,8 @@ import { StaffService } from '../staff.service';
   styleUrls: ['./staff-type.component.css']
 })
 export class StaffTypeComponent implements OnInit {
+	staffState: Observable<{staffs: StaffType[]}>;
+	private subscription: Subscription;
 
   constructor(private staffService: StaffService,
 		private store: Store<{staff: {staffs: StaffType[]}}>, 
@@ -18,6 +22,7 @@ export class StaffTypeComponent implements OnInit {
 		private route: ActivatedRoute) { }
 
   ngOnInit() {
+		this.staffState = this.store.select('staff');
 	}
 	
 	onNewStaff() {

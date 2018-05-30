@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { StaffTypeComponent } from './staff-type/staff-type.component';
@@ -28,6 +29,7 @@ import { StaffTypeEditComponent } from './staff-type/staff-type-edit/staff-type-
   imports: [
 		BrowserModule,
 		AppRoutingModule,
+		FormsModule,
 		StoreModule.forRoot({staffType: staffTypeReducer})
   ],
   providers: [StaffService],

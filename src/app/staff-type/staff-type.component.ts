@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
+import { Subscription } from 'rxjs/Subscription';
 
 import { StaffType } from './staff-type.model';
 import { StaffService } from '../staff.service';
-import { Observable } from 'rxjs/Observable';
-import { Subscription } from 'rxjs/Subscription';
+import * as StaffTypeActions from './store/staff-type.actions';
 
 @Component({
   selector: 'app-staff-type',
@@ -26,6 +27,7 @@ export class StaffTypeComponent implements OnInit {
 	}
 	
 	onNewStaff() {
-		// this.router.navigate(['new'], {relativeTo: this.route});
+		// this.store.dispatch(new StaffTypeActions.AddStaff(this.staffState));
+		this.router.navigate(['new'], {relativeTo: this.route});
 	}
 }

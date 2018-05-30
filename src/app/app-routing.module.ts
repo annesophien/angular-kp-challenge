@@ -9,9 +9,11 @@ import { StaffTypeEditComponent } from "./staff-type/staff-type-edit/staff-type-
 const appRoutes: Routes = [
 	{ path: '', redirectTo: '/staff-type', pathMatch: 'full' },
 	{ path: 'staff-type', component: StaffTypeComponent, children: [
-		{ path: 'new', component: StaffTypeEditComponent },
+		{ path: '', component: StaffTypeEditComponent },
+		// { path: 'new', component: StaffTypeEditComponent },
 		{ path: ':id/edit', component: StaffTypeEditComponent },
 	] },
+	{ path: 'staff-type/new', component: StaffTypeEditComponent },
 	{ path: 'contact-centers', component: ContactCenterComponent },
 	{ path: 'computer-phone', component: ComputerPhoneComponent }
 ]

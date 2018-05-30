@@ -1,3 +1,50 @@
-<p>
-  staff-type-edit works!
-</p>
+<div class="row">
+	<div class="col-md-12">
+		<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+			<div class="form-group">
+				<label for="description">Description</label>
+				<input 
+					type="text" 
+					id="description" 
+					class="form-control"
+					name="description"
+					ngModel required>
+			</div>
+			<div class="form-group">
+				<label for="code">Code</label>
+				<input 
+					type="number" 
+					id="code" 
+					class="form-control"
+					name="code"
+					ngModel required>
+			</div>
+			<div class="form-group">
+				<label for="role">Role</label>
+				<select class="selectpicker show-tick"
+					id="role"
+					name="role"
+					ngModel required>
+					<option>MD</option>
+					<option>RN</option>
+					<option>AGENT</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="active">Active</label>
+				<select class="selectpicker show-tick"
+					id="active"
+					name="active"
+					ngModel required>
+					<option>Yes</option>
+					<option>No</option>
+				</select>
+			</div>
+			<div class="row">
+				<div class="col-xs-12">
+					<button class="btn btn-success" type="submit">Add</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

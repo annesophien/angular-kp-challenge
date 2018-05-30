@@ -25,7 +25,7 @@ export function staffTypeReducer(state = initialState, action: StaffTypeActions.
 		case StaffTypeActions.ADD_STAFF:
 			return {
 				...state,
-				staff: [...state.staffs, action.payload]
+				staffs: [...state.staffs, action.payload]
 			};
 		default:
 			return state;

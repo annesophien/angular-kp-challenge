@@ -5,8 +5,8 @@ import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 
 import { StaffType } from './staff-type.model';
-import { StaffService } from '../staff.service';
 import * as StaffTypeActions from './store/staff-type.actions';
+import * as fromStaffType from './store/staff-type.reducers';
 
 @Component({
   selector: 'app-staff-type',
@@ -15,19 +15,17 @@ import * as StaffTypeActions from './store/staff-type.actions';
 })
 export class StaffTypeComponent implements OnInit {
 	staffState: Observable<{staffs: StaffType[]}>;
-	private subscription: Subscription;
 
-  constructor(private staffService: StaffService,
-		private store: Store<{staff: {staffs: StaffType[]}}>, 
+  constructor(
+		private store: Store<fromStaffType.AppState>,	//store: Store<{staff: {staffs: StaffType[]}}>,
 		private router: Router, 
 		private route: ActivatedRoute) { }
 
   ngOnInit() {
-		this.staffState = this.store.select('staff');
+		this.staffState = this.store.select('staffState');
 	}
 	
 	onNewStaff() {
-		// this.store.dispatch(new StaffTypeActions.AddStaff(this.staffState));
 		this.router.navigate(['new'], {relativeTo: this.route});
 	}
 }

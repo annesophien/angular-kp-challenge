@@ -13,8 +13,6 @@
 			(click)="openModal()"
 			[class.active]="i == selectedRow"
 			data-target="#editModal">
-			<!-- <app-staff-row [staff]="staff"></app-staff-row> -->
-			<!-- <app-staff-row [staff]="staff" [columns]="columns"></app-staff-row> -->
 			<td>{{ staff.description }}</td>
 			<td>{{ staff.code }}</td>
 			<td>{{ staff.role }}</td>
@@ -25,7 +23,6 @@
 	</tbody>
 </table>
 
-<!-- <div class="backdrop" [ngStyle]="{'display':display}"></div> -->
 <div class="modal" id="editModal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -34,7 +31,6 @@
 					<h4 class="modal-title">Update Staff Type</h4>
 				</div>
 				<div class="modal-body">
-					<!-- <p>Model body text</p> -->
 					<form>
 						<div class="row">
 							<div class="col-md-12">

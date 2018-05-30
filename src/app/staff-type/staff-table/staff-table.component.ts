@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs/Observable';
 
 import { StaffService } from '../../staff.service';
 import { StaffType } from '../staff-type.model';
-import { Observable } from 'rxjs/Observable';
+import * as fromStaffType from '../store/staff-type.reducers';
 
 @Component({
   selector: 'app-staff-table',
@@ -17,10 +18,10 @@ export class StaffTableComponent implements OnInit {
 	display = 'none';
 
 	constructor(private staffService: StaffService,
-		private store: Store<{staffType: {staffs: StaffType[]}}>) { }
+		private store: Store<fromStaffType.AppState>) { }
 
   ngOnInit() {
-		this.staffState = this.store.select('staffType');	// this.staffs = this.staffService.getStaffs();
+		this.staffState = this.store.select('staffState');
 		this.columns = this.staffService.getColumns();
 	}
 	

@@ -25,9 +25,11 @@
 					id="role"
 					name="role"
 					ngModel required>
+					<option disabled selected value></option>
 					<option>MD</option>
 					<option>RN</option>
 					<option>AGENT</option>
+					<option>OTHER</option>
 				</select>
 			</div>
 			<div class="form-group">
@@ -36,13 +38,14 @@
 					id="active"
 					name="active"
 					ngModel required>
+					<option disabled selected value></option>
 					<option>Yes</option>
 					<option>No</option>
 				</select>
 			</div>
 			<div class="row">
 				<div class="col-xs-12">
-					<button class="btn btn-success" type="submit">Add</button>
+					<button class="btn btn-success" type="submit" [disabled]="!f.valid">Add</button>
 				</div>
 			</div>
 		</form>

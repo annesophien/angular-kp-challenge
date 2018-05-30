@@ -30,7 +30,7 @@ import { StaffTypeEditComponent } from './staff-type/staff-type-edit/staff-type-
 		BrowserModule,
 		AppRoutingModule,
 		FormsModule,
-		StoreModule.forRoot({staffType: staffTypeReducer})
+		StoreModule.forRoot({staffState: staffTypeReducer})
   ],
   providers: [StaffService],
   bootstrap: [AppComponent]

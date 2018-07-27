@@ -1,18 +1,18 @@
-<table class="table table-striped">
-	<thead>
+<div style="text-align:right">
+	<p-button label="Add" id="button-add" (click)="showDialogToAdd()"></p-button>
+</div>
+
+<p-table [value]="(staffState | async).staffs" sortField="description" selectionMode="single" [(selection)]="selectedStaffType"
+	(onRowSelect)="onRowSelect($event)">
+
+	<ng-template pTemplate="header">
 		<tr>
-			<th *ngFor="let col of columns">{{ col.title }}</th>
+			<th *ngFor="let col of columns" [pSortableColumn]="col.description">{{ col.title }}</th>
 		</tr>
-	</thead>
-	<tbody>
-		<!-- https://ciphertrick.com/2016/10/26/highlight-selected-row-in-ngfor-angular-2/ -->
-		<tr 
-			*ngFor="let staff of (staffState | async).staffs; let i = index" 
-			[id]="i" 
-			(click)="setClickedRow(i)" 
-			(click)="openModal()"
-			[class.active]="i == selectedRow"
-			data-target="#editModal">
+	</ng-template>
+
+	<ng-template pTemplate="body" let-staff let-i="rowIndex">
+		<tr [pSelectableRow]="staff">
 			<td>{{ staff.description }}</td>
 			<td>{{ staff.code }}</td>
 			<td>{{ staff.role }}</td>
@@ -20,10 +20,90 @@
 			<td>{{ staff.modifiedBy }}</td>
 			<td>{{ staff.modifiedDate }}</td>
 		</tr>
-	</tbody>
-</table>
+	</ng-template>
 
-<div class="modal" id="editModal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+	<!-- <ng-template pTemplate="summary">
+		<div style="text-align:right">
+			<button type="button" pButton icon="fa-plus" (click)="showDialogToAdd()" label="Add"></button>
+		</div>
+	</ng-template> -->
+</p-table>
+
+<p-dialog [header]="newStaffType ? 'Add Staff Type' : 'Update Staff Type'" [(visible)]="displayDialog" [width]="500">
+	<!-- <div class="col-md-12">
+		<label for="code">Staff Type Code</label>
+		<input type="text" pInputText id="code" [(ngModel)]="property"/>
+	</div> -->
+	<div class="ui-g ui-fluid" *ngIf="staffType">
+		<div class="ui-g-12">
+			<div class="ui-g-4">
+				<label for="code">Staff Type Code</label>
+			</div>
+			<div class="ui-g-8">
+				<input pInputText id="code" [(ngModel)]="staffType.code" style="width:100%" required/>
+			</div>
+		</div>
+		<div class="ui-g-12">
+			<div class="ui-g-4">
+				<label for="description">Staff Type Description</label>
+			</div>
+			<div class="ui-g-8">
+				<input pInputText id="description" [(ngModel)]="staffType.description" style="width:100%" required/>
+			</div>
+		</div>
+		<div class="ui-g-12">
+			<div class="ui-g-4">
+				<label for="role">Staff Role</label>
+			</div>
+			<div class="ui-g-8">
+				<select class="selectpicker show-tick"
+					id="role"
+					name="role"
+					[(ngModel)]="staffType.role" required>
+					<option disabled selected value></option>
+					<option>AGENT</option>
+					<option>MD</option>
+					<option>RN</option>
+				</select>
+				<!-- <input pInputText id="role" [(ngModel)]="staffType.role"/> -->
+			</div>
+		</div>
+		<div class="ui-g-12">
+			<div class="ui-g-4">
+				<label for="call-after-work">Enabled After Call Work</label>
+			</div>
+			<div class="ui-g-8">
+				<select class="selectpicker show-tick"
+					id="call-after-work"
+					ngModel required disabled>
+					<option disabled selected value></option>
+				</select>
+			</div>
+		</div>
+		<div class="ui-g-12">
+			<div class="ui-g-4">
+				<label for="restrict-call-history">Restrict Call History</label>
+			</div>
+			<div class="ui-g-8">
+				<select class="restrict-call-history"
+					id="call-after-work"
+					ngModel required disabled>
+					<option disabled selected value></option>
+				</select>
+			</div>
+		</div>
+
+		<p-footer>
+			<div class="ui-dialog-buttonpane ui-helper-clearfix">
+				<button type="button" class="btn btn-default" [(disabled)]="staffDisabled" (click)="activate()">{{ this.staffType.active == '' || this.staffType.active == 'N' ? 'Activate' : 'Deactivate' }}</button>
+				<button type="button" class="btn btn-default" (click)="cancel()">Cancel</button>
+				<button type="button" class="btn btn-default" (click)="save()">Save</button>
+			</div>
+		</p-footer>
+	</div>
+</p-dialog>
+
+<!-- <div class="modal" id="editModal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -71,4 +151,4 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
